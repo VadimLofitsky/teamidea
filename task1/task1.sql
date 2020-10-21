@@ -12,9 +12,9 @@ with all_pairs as (     -- все возможные пары бренд-скл�
                ap.whouse whouse,
                sum(g.quantity) qty
             from all_pairs ap
-            left outer join goods g
+            join goods g
                 on g.warehouseid = ap.whid
-            left outer join product p
+            join product p
                 on g.productid = p.id
             where p.brandid = ap.brandid
             group by ap.whouse, ap.brand
